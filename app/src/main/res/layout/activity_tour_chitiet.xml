@@ -22,7 +22,7 @@
                 android:layout_height="250dp">
 
                 <ImageView
-                    android:id="@+id/anh1"
+                    android:id="@+id/img_chitiet_tour"
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
                     android:scaleType="centerCrop"
@@ -71,6 +71,7 @@
                 android:padding="10dp">
 
                 <TextView
+                    android:id="@+id/tv_chitiet_tentour"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="10dp"
@@ -94,6 +95,7 @@
                         android:src="@drawable/ic_star" />
 
                     <TextView
+                        android:id="@+id/tv_chitiet_sosao"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="5dp"
@@ -154,6 +156,7 @@
                         android:src="@drawable/ic_location" />
 
                     <TextView
+                        android:id="@+id/tv_chitiet_diachi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="5dp"
@@ -194,6 +197,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tv_chitiet_mota"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="10dp"
@@ -509,6 +513,7 @@
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/tv_chitiet_giasale"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"

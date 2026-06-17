@@ -10,6 +10,9 @@ public interface TourDAO {
     @Query("SELECT * FROM TOUR")
     List<TourEntity> getAllTours();
 
+    @Query("SELECT * FROM TOUR WHERE tourId = :tId")
+    TourEntity getTourById(int tId);
+
     // Lọc Tour theo Thành phố (Ví dụ: bấm vào ô Đà Nẵng)
     @Query("SELECT * FROM TOUR WHERE ThanhPho = :city")
     List<TourEntity> getToursByCity(String city);

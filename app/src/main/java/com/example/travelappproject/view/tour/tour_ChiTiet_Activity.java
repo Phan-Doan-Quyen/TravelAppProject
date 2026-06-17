@@ -6,73 +6,110 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.TextView; // Thêm import TextView
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.travelappproject.R;
 
+// IMPORT DATABASE
+import com.example.travelappproject.database.AppDatabase;
+import com.example.travelappproject.database.TourEntity;
+
 public class tour_ChiTiet_Activity extends AppCompatActivity {
+
+    // Khai báo các biến giao diện
+    private ImageView imgTour;
+    private TextView tvTenTour, tvSoSao, tvDiaChi, tvMoTa, tvGiaSale;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tour_chitiet);
 
-        // Bắt sự kiện click vào từng layout
+        // 1. Ánh xạ các View (Hãy đảm bảo ID khớp với file XML của bạn)
+        imgTour = findViewById(R.id.img_chitiet_tour);
+        tvTenTour = findViewById(R.id.tv_chitiet_tentour);
+        tvSoSao = findViewById(R.id.tv_chitiet_sosao);
+        tvDiaChi = findViewById(R.id.tv_chitiet_diachi);
+        tvMoTa = findViewById(R.id.tv_chitiet_mota);
+        tvGiaSale = findViewById(R.id.tv_chitiet_giasale);
+
+        // 2. Load dữ liệu từ CSDL
+        loadTourDataFromDatabase();
+
+        // 3. Bắt sự kiện click vào từng layout
         setupClickListeners();
     }
 
-    // Phương thức để set sự kiện click cho các layout
+    private void loadTourDataFromDatabase() {
+        // Nhận ID từ màn hình danh sách truyền sang
+        int currentTourId = getIntent().getIntExtra("TOUR_ID", -1);
+
+        if (currentTourId != -1) {
+            AppDatabase db = AppDatabase.getDatabase(this);
+            AppDatabase.databaseWriteExecutor.execute(() -> {
+
+                // Lấy Tour từ CSDL
+                TourEntity currentTour = db.tourDAO().getTourById(currentTourId);
+
+                if (currentTour != null) {
+                    runOnUiThread(() -> {
+                        // Đổ dữ liệu chữ lên giao diện
+                        if(tvTenTour != null) tvTenTour.setText(currentTour.tenTour);
+                        if(tvSoSao != null) tvSoSao.setText(String.valueOf(currentTour.soSao));
+
+                        // Nối Địa chỉ và Thành phố lại với nhau
+                        if(tvDiaChi != null) tvDiaChi.setText(currentTour.diaChi + ", Thành phố " + currentTour.thanhPho + ", Việt Nam");
+
+                        if(tvMoTa != null) tvMoTa.setText(currentTour.mota);
+                        if(tvGiaSale != null) tvGiaSale.setText(currentTour.giaSale + "đ");
+
+                        // Load ảnh động
+                        if(imgTour != null) {
+                            int imageResId = getResources().getIdentifier(currentTour.hinhAnh, "drawable", getPackageName());
+                            if (imageResId != 0) {
+                                imgTour.setImageResource(imageResId);
+                            } else {
+                                imgTour.setImageResource(R.drawable.anh1); // Ảnh mặc định nếu lỗi
+                            }
+                        }
+                    });
+                }
+            });
+        }
+    }
+
+    // Phương thức để set sự kiện click cho các layout (GIỮ NGUYÊN)
     private void setupClickListeners() {
         LinearLayout firstProduct = findViewById(R.id.first_product_chitiet);
         LinearLayout secondProduct = findViewById(R.id.second_product_chitiet);
         LinearLayout thirdProduct = findViewById(R.id.third_product_chitiet);
 
-        // Set sự kiện cho mỗi layout
-        firstProduct.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openDetailActivity();
-            }
-        });
+        if(firstProduct != null) {
+            firstProduct.setOnClickListener(v -> openDetailActivity());
+        }
 
-        secondProduct.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openDetailActivity();
-            }
-        });
+        if(secondProduct != null) {
+            secondProduct.setOnClickListener(v -> openDetailActivity());
+        }
 
         final ScrollView scrollView = findViewById(R.id.scrollView);
-
-        // Set sự kiện cho layout thứ 3 để scroll đến layout đầu tiên
-        thirdProduct.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Cuộn mượt đến vị trí của layout đầu tiên
-                scrollView.smoothScrollTo(0, firstProduct.getTop());
-            }
-        });
+        if(thirdProduct != null && scrollView != null && firstProduct != null) {
+            thirdProduct.setOnClickListener(v -> scrollView.smoothScrollTo(0, firstProduct.getTop()));
+        }
 
         ImageView backButton = findViewById(R.id.back_button);
-
-        // Set the click listener for the ImageView
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Navigate to DatVe_DatCho_Activity
-                openDatChoActivity();
-            }
-        });
+        if(backButton != null) {
+            backButton.setOnClickListener(v -> openDatChoActivity());
+        }
     }
 
-    // Phương thức để mở giao diện activity_tour_chitiet.xml
     private void openDatChoActivity() {
         Intent intent = new Intent(tour_ChiTiet_Activity.this, tour_CoTheBanSeThich_Activity.class);
         startActivity(intent);
     }
 
-    // Phương thức để mở giao diện activity_tour_chitiet.xml
     private void openDetailActivity() {
         Intent intent = new Intent(tour_ChiTiet_Activity.this, tour_DatVe_Activity.class);
         startActivity(intent);
