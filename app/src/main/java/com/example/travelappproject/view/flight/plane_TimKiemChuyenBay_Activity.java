@@ -23,6 +23,8 @@ import com.example.travelappproject.adapter.flight.flight_Search_Adapter;
 import com.example.travelappproject.view.hotel.Taikhoan;
 import com.example.travelappproject.view.hotel.hotel_MainHome_Activity;
 import com.example.travelappproject.view.hotel.hotel_MainHotel_Activity;
+import com.example.travelappproject.view.hotel.hotel_MainInf_Activity;
+import com.example.travelappproject.view.tour.tour_Tour_Activity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
@@ -57,6 +59,10 @@ public class plane_TimKiemChuyenBay_Activity extends AppCompatActivity {
                 return true;
             } else if (item.getItemId() == R.id.action_tour) {
                 startActivity(new Intent(this, Taikhoan.class));
+                return true;
+            }
+            else if (item.getItemId() == R.id.action_real_tour) {
+                startActivity(new Intent(this, tour_Tour_Activity.class));
                 return true;
             }
             return false;

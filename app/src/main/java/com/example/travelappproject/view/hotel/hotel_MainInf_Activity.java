@@ -28,6 +28,7 @@ import com.example.travelappproject.R;
 import com.example.travelappproject.adapter.hotel.hotel_Location_Adapter;
 import com.example.travelappproject.adapter.hotel.hotel_CategoryPay_Adapter;
 import com.example.travelappproject.view.flight.plane_VeMayBay_Activity;
+import com.example.travelappproject.view.tour.tour_Tour_Activity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
 
@@ -82,6 +83,12 @@ public class hotel_MainInf_Activity extends AppCompatActivity {
 
                 else if (item.getItemId() == R.id.action_tour) {
                     Intent intent = new Intent(hotel_MainInf_Activity.this, Taikhoan.class);
+                    startActivity(intent);
+                    return true;
+                }
+                else if (item.getItemId() == R.id.action_real_tour) {
+                    // Import class tour_Tour_Activity nếu máy báo đỏ nhé
+                    Intent intent = new Intent(hotel_MainInf_Activity.this, tour_Tour_Activity.class);
                     startActivity(intent);
                     return true;
                 }

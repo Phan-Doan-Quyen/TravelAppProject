@@ -32,6 +32,7 @@ import com.example.travelappproject.adapter.hotel.hotel_ChooseHotel_Hotel_Adapte
 // ĐÃ XÓA IMPORT MODEL GIẢ Ở ĐÂY
 import com.example.travelappproject.view.flight.plane_VeMayBay_Activity;
 import com.example.travelappproject.view.tour.tour_Cart_Activity;
+import com.example.travelappproject.view.tour.tour_Tour_Activity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class hotel_MainHotel_Activity extends AppCompatActivity {
@@ -83,6 +84,13 @@ public class hotel_MainHotel_Activity extends AppCompatActivity {
                     startActivity(settingIntent);
                     return true;
                 }
+
+                else if (item.getItemId() == R.id.action_real_tour) {
+                    // Import class tour_Tour_Activity nếu máy báo đỏ nhé
+                    Intent intent = new Intent(hotel_MainHotel_Activity.this, tour_Tour_Activity.class);
+                    startActivity(intent);
+                    return true;
+                }
                 return false;
             }
         });
@@ -117,6 +125,37 @@ public class hotel_MainHotel_Activity extends AppCompatActivity {
         cgrChoose.setData(dbHotels);
         recyclerView.setAdapter(cgrChoose);
         // ==========================================
+
+        // ==========================================
+        // TÌM NÚT SEARCH VÀ BẮT SỰ KIỆN LỌC THÀNH PHỐ
+        // ==========================================
+        android.widget.Button btnSearch = findViewById(R.id.btn_search);
+
+        btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 1. Lấy tên thành phố đang được chọn trên Spinner
+                hotel_Category_Model selectedItem = (hotel_Category_Model) spinner.getSelectedItem();
+                String selectedCity = selectedItem.getName();
+
+                // 2. Chạy Query lấy dữ liệu từ DB (Dùng luồng phụ để app không bị đơ)
+                AppDatabase.databaseWriteExecutor.execute(() -> {
+
+                    // Gọi hàm getHotelsByCity mà chúng ta đã khai báo trong DAO
+                    List<HotelEntity> filteredHotels = db.hotelDAO().getHotelsByCity(selectedCity);
+
+                    // 3. Đẩy dữ liệu mới lên giao diện (Bắt buộc chạy trên luồng chính)
+                    runOnUiThread(() -> {
+                        cgrChoose.setData(filteredHotels);
+
+                        // Thông báo nhỏ cho sinh động (Tùy chọn)
+                        if(filteredHotels.isEmpty()) {
+                            Toast.makeText(hotel_MainHotel_Activity.this, "Không có khách sạn nào ở " + selectedCity, Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                });
+            }
+        });
 
         imageView = findViewById(R.id.img_back_hotel);
         imageView.setOnClickListener(new View.OnClickListener() {

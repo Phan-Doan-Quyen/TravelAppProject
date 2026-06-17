@@ -29,6 +29,7 @@ import com.example.travelappproject.view.flight.plane_VeMayBay_Activity;
 import com.example.travelappproject.view.hotel.Taikhoan;
 import com.example.travelappproject.view.hotel.hotel_MainHome_Activity;
 import com.example.travelappproject.view.hotel.hotel_MainHotel_Activity;
+import com.example.travelappproject.view.hotel.hotel_MainInf_Activity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 // THÊM THƯ VIỆN CHO CSDL VÀ ADAPTER MỚI
@@ -63,11 +64,19 @@ public class tour_Tour_Activity extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
+        bottomNavigationView.setSelectedItemId(R.id.action_real_tour);
+
         // Xử lý sự kiện nhấn trên từng mục
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
-                if (item.getItemId() == R.id.action_home) {
+                if (item.getItemId() == R.id.action_real_tour) {
+                    // Import class tour_Tour_Activity nếu máy báo đỏ nhé
+                    Intent intent = new Intent(tour_Tour_Activity.this, tour_Tour_Activity.class);
+                    startActivity(intent);
+                    return true;
+                }
+                else if (item.getItemId() == R.id.action_home) {
                     Intent intent = new Intent(tour_Tour_Activity.this, hotel_MainHome_Activity.class);
                     startActivity(intent);
                     return true;

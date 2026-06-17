@@ -12,9 +12,14 @@ public interface HotelDAO {
     @Query("SELECT * FROM HOTEL")
     List<HotelEntity> getAllHotels();
 
-    // Sửa KHACHSAN thành HOTEL (Nếu bạn có dùng hàm lọc theo thành phố)
     @Query("SELECT * FROM HOTEL WHERE thanhPho = :selectedCity")
     List<HotelEntity> getHotelsByCity(String selectedCity);
+
+    @Query("SELECT * FROM HOTEL WHERE soSao = :starRating")
+    List<HotelEntity> getHotelsByStar(String starRating);
+
+    @Query("SELECT * FROM HOTEL WHERE hotelId = :hId")
+    HotelEntity getHotelById(int hId);
 
     @Insert
     void insert(HotelEntity hotel);

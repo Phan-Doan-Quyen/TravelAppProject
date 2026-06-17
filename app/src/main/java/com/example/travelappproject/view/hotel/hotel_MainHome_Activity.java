@@ -75,7 +75,7 @@ public class hotel_MainHome_Activity extends AppCompatActivity {
         AppDatabase db = AppDatabase.getDatabase(this);
 
         AppDatabase.databaseWriteExecutor.execute(() -> {
-            List<HotelEntity> entities = db.hotelDAO().getAllHotels();
+            List<HotelEntity> entities = db.hotelDAO().getHotelsByStar("5");
 
             List<hotel_CategoryHotel2_Home_Model> hotelList = new ArrayList<>();
             for (HotelEntity entity : entities) {

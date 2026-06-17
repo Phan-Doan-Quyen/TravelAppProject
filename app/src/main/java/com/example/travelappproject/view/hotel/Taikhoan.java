@@ -18,6 +18,7 @@ import com.example.travelappproject.view.flight.plane_VeMayBay_Activity;
 import com.example.travelappproject.view.tour.tour_DaDatGanDay;
 import com.example.travelappproject.view.tour.tour_DaLuu;
 import com.example.travelappproject.view.tour.tour_MaGiamGia;
+import com.example.travelappproject.view.tour.tour_Tour_Activity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
 
@@ -61,6 +62,12 @@ public class Taikhoan extends AppCompatActivity {
                     // Chuyển đến SettingActivity
                     Intent settingIntent = new Intent(Taikhoan.this, Taikhoan.class);
                     startActivity(settingIntent);
+                    return true;
+                }
+                else if (item.getItemId() == R.id.action_real_tour) {
+                    // Import class tour_Tour_Activity nếu máy báo đỏ nhé
+                    Intent intent = new Intent(Taikhoan.this, tour_Tour_Activity.class);
+                    startActivity(intent);
                     return true;
                 }
                 return false;

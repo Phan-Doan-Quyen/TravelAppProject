@@ -7,6 +7,12 @@
         >
     </item>
     <item
+        android:id="@+id/action_real_tour"
+        android:title="tour"
+        android:icon="@drawable/ic_tour"
+        >
+    </item>
+    <item
         android:id="@+id/action_hotel"
         android:title="hotel"
         android:icon="@drawable/hotel"

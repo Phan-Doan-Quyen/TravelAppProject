@@ -18,6 +18,7 @@ import com.example.travelappproject.view.flight.plane_VeMayBay_Activity;
 import com.example.travelappproject.view.hotel.Taikhoan;
 import com.example.travelappproject.view.hotel.hotel_MainHome_Activity;
 import com.example.travelappproject.view.hotel.hotel_MainHotel_Activity;
+import com.example.travelappproject.view.hotel.hotel_MainInf_Activity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class tour_DaDatGanDay extends AppCompatActivity {
@@ -58,6 +59,13 @@ public class tour_DaDatGanDay extends AppCompatActivity {
                     // Chuyển đến SettingActivity
                     Intent settingIntent = new Intent(tour_DaDatGanDay.this, Taikhoan.class);
                     startActivity(settingIntent);
+                    return true;
+                }
+
+                else if (item.getItemId() == R.id.action_real_tour) {
+                    // Import class tour_Tour_Activity nếu máy báo đỏ nhé
+                    Intent intent = new Intent(tour_DaDatGanDay.this, tour_Tour_Activity.class);
+                    startActivity(intent);
                     return true;
                 }
                 return false;

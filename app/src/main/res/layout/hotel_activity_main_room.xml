@@ -53,17 +53,21 @@
                 android:background="@drawable/no_stroke_border">
 
                 <ImageView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/img_room_hotel"
+                    android:layout_width="130dp"
                     android:layout_height="match_parent"
                     android:src="@drawable/hotel_6"
                     android:scaleType="centerCrop" />
+
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="10dp">
 
                     <TextView
+                        android:id="@+id/tv_room_hotelName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="16dp"
@@ -87,13 +91,14 @@
                         android:text="Mô tả khách sạn" />
 
                     <TextView
+                        android:id="@+id/tv_room_hotelDesc"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="10dp"
                         android:padding="5dp"
                         android:alpha="0.7"
                         android:textColor="@color/black"
-                        android:text="Quầy tiếp tân 24 giờ luôn sẵn sàng phục vụ quý khách. Nếu cần giúp đỡ xin hãy liên hệ đội ngũ tiếp tân, chúng tôi sẵn sàng hỗ trợ quý khách." />
+                        android:text="Quầy tiếp tân 24 giờ luôn sẵn sàng phục vụ quý khách." />
 
                     <View
                         android:layout_width="match_parent"
@@ -107,25 +112,17 @@
                         android:textStyle="bold"
                         android:padding="5dp"
                         android:textColor="@color/black"
-                        android:text="Chính sách" />
+                        android:text="Địa chỉ" />
 
                     <TextView
+                        android:id="@+id/tv_room_hotelAddress"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="10dp"
                         android:alpha="0.7"
                         android:paddingLeft="5dp"
                         android:textColor="@color/black"
-                        android:text="Hướng dẫn nhận phòng chung" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="10dp"
-                        android:alpha="0.7"
-                        android:padding="5dp"
-                        android:textColor="@color/black"
-                        android:text="Chính sách bổ sung" />
+                        android:text="23 Nguyễn Khuyến, Đà Nẵng" />
 
                 </LinearLayout>
 
@@ -150,6 +147,7 @@
                     android:layout_gravity="center" />
 
                 <Button
+                    android:id="@+id/btn_changePerson"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
