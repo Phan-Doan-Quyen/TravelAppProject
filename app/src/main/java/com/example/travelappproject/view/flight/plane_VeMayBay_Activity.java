@@ -20,6 +20,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.travelappproject.R;
+// IMPORT DATABASE VÀ ENTITY
+import com.example.travelappproject.database.AppDatabase;
+import com.example.travelappproject.database.FlightEntity;
+
 import com.example.travelappproject.model.flight.plane_GiaVeNoiDia_Model;
 import com.example.travelappproject.model.flight.plane_GiaVeQuocTe_Model;
 import com.example.travelappproject.model.flight.plane_Category_Model;
@@ -64,10 +68,8 @@ public class plane_VeMayBay_Activity extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
 
-        // Đặt mục action_hotel là mặc định
         bottomNavigationView.setSelectedItemId(R.id.action_plane);
 
-        // Xử lý sự kiện nhấn trên từng mục
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
@@ -123,100 +125,97 @@ public class plane_VeMayBay_Activity extends AppCompatActivity {
                 bottomSheet.show(getSupportFragmentManager(), bottomSheet.getTag());
             }
         });
-        btnDNAhn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                btnDNAhn.setTextColor(getResources().getColor(R.color.white));
-                btnDNAhn.setBackground(getResources().getDrawable(R.drawable.button_maybay1));
-                btnDNAhcm.setTextColor(getResources().getColor(R.color.xanhncbien));
-                btnDNAhcm.setBackground(getResources().getDrawable(R.drawable.button_maybay2));
-                btnDNAdn.setTextColor(getResources().getColor(R.color.xanhncbien));
-                btnDNAdn.setBackground(getResources().getDrawable(R.drawable.button_maybay2));
-            }
+
+        // ... (Giữ nguyên các sự kiện click đổi màu button) ...
+        btnDNAhn.setOnClickListener(v -> {
+            btnDNAhn.setTextColor(getResources().getColor(R.color.white));
+            btnDNAhn.setBackground(getResources().getDrawable(R.drawable.button_maybay1));
+            btnDNAhcm.setTextColor(getResources().getColor(R.color.xanhncbien));
+            btnDNAhcm.setBackground(getResources().getDrawable(R.drawable.button_maybay2));
+            btnDNAdn.setTextColor(getResources().getColor(R.color.xanhncbien));
+            btnDNAdn.setBackground(getResources().getDrawable(R.drawable.button_maybay2));
         });
-        btnDNAhcm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                btnDNAhcm.setTextColor(getResources().getColor(R.color.white));
-                btnDNAhcm.setBackground(getResources().getDrawable(R.drawable.button_maybay1));
-                btnDNAhn.setTextColor(getResources().getColor(R.color.xanhncbien));
-                btnDNAhn.setBackground(getResources().getDrawable(R.drawable.button_maybay2));
-                btnDNAdn.setTextColor(getResources().getColor(R.color.xanhncbien));
-                btnDNAdn.setBackground(getResources().getDrawable(R.drawable.button_maybay2));
-            }
+        btnDNAhcm.setOnClickListener(v -> {
+            btnDNAhcm.setTextColor(getResources().getColor(R.color.white));
+            btnDNAhcm.setBackground(getResources().getDrawable(R.drawable.button_maybay1));
+            btnDNAhn.setTextColor(getResources().getColor(R.color.xanhncbien));
+            btnDNAhn.setBackground(getResources().getDrawable(R.drawable.button_maybay2));
+            btnDNAdn.setTextColor(getResources().getColor(R.color.xanhncbien));
+            btnDNAdn.setBackground(getResources().getDrawable(R.drawable.button_maybay2));
         });
-        btnDNAdn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                btnDNAdn.setTextColor(getResources().getColor(R.color.white));
-                btnDNAdn.setBackground(getResources().getDrawable(R.drawable.button_maybay1));
-                btnDNAhn.setTextColor(getResources().getColor(R.color.xanhncbien));
-                btnDNAhn.setBackground(getResources().getDrawable(R.drawable.button_maybay2));
-                btnDNAhcm.setTextColor(getResources().getColor(R.color.xanhncbien));
-                btnDNAhcm.setBackground(getResources().getDrawable(R.drawable.button_maybay2));
-            }
+        btnDNAdn.setOnClickListener(v -> {
+            btnDNAdn.setTextColor(getResources().getColor(R.color.white));
+            btnDNAdn.setBackground(getResources().getDrawable(R.drawable.button_maybay1));
+            btnDNAhn.setTextColor(getResources().getColor(R.color.xanhncbien));
+            btnDNAhn.setBackground(getResources().getDrawable(R.drawable.button_maybay2));
+            btnDNAhcm.setTextColor(getResources().getColor(R.color.xanhncbien));
+            btnDNAhcm.setBackground(getResources().getDrawable(R.drawable.button_maybay2));
         });
-        btnhn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                btnhn.setTextColor(getResources().getColor(R.color.white));
-                btnhn.setBackground(getResources().getDrawable(R.drawable.button_maybay1));
-                btntphcm.setTextColor(getResources().getColor(R.color.xanhncbien));
-                btntphcm.setBackground(getResources().getDrawable(R.drawable.button_maybay2));
-                btndn.setTextColor(getResources().getColor(R.color.xanhncbien));
-                btndn.setBackground(getResources().getDrawable(R.drawable.button_maybay2));
-            }
+        btnhn.setOnClickListener(v -> {
+            btnhn.setTextColor(getResources().getColor(R.color.white));
+            btnhn.setBackground(getResources().getDrawable(R.drawable.button_maybay1));
+            btntphcm.setTextColor(getResources().getColor(R.color.xanhncbien));
+            btntphcm.setBackground(getResources().getDrawable(R.drawable.button_maybay2));
+            btndn.setTextColor(getResources().getColor(R.color.xanhncbien));
+            btndn.setBackground(getResources().getDrawable(R.drawable.button_maybay2));
         });
-        btntphcm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                btntphcm.setTextColor(getResources().getColor(R.color.white));
-                btntphcm.setBackground(getResources().getDrawable(R.drawable.button_maybay1));
-                btnhn.setTextColor(getResources().getColor(R.color.xanhncbien));
-                btnhn.setBackground(getResources().getDrawable(R.drawable.button_maybay2));
-                btndn.setTextColor(getResources().getColor(R.color.xanhncbien));
-                btndn.setBackground(getResources().getDrawable(R.drawable.button_maybay2));
-            }
+        btntphcm.setOnClickListener(v -> {
+            btntphcm.setTextColor(getResources().getColor(R.color.white));
+            btntphcm.setBackground(getResources().getDrawable(R.drawable.button_maybay1));
+            btnhn.setTextColor(getResources().getColor(R.color.xanhncbien));
+            btnhn.setBackground(getResources().getDrawable(R.drawable.button_maybay2));
+            btndn.setTextColor(getResources().getColor(R.color.xanhncbien));
+            btndn.setBackground(getResources().getDrawable(R.drawable.button_maybay2));
         });
-        btndn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                btndn.setTextColor(getResources().getColor(R.color.white));
-                btndn.setBackground(getResources().getDrawable(R.drawable.button_maybay1));
-                btnhn.setTextColor(getResources().getColor(R.color.xanhncbien));
-                btnhn.setBackground(getResources().getDrawable(R.drawable.button_maybay2));
-                btntphcm.setTextColor(getResources().getColor(R.color.xanhncbien));
-                btntphcm.setBackground(getResources().getDrawable(R.drawable.button_maybay2));
-            }
+        btndn.setOnClickListener(v -> {
+            btndn.setTextColor(getResources().getColor(R.color.white));
+            btndn.setBackground(getResources().getDrawable(R.drawable.button_maybay1));
+            btnhn.setTextColor(getResources().getColor(R.color.xanhncbien));
+            btnhn.setBackground(getResources().getDrawable(R.drawable.button_maybay2));
+            btntphcm.setTextColor(getResources().getColor(R.color.xanhncbien));
+            btntphcm.setBackground(getResources().getDrawable(R.drawable.button_maybay2));
+        });
+        btnn1.setOnClickListener(v -> {
+            btnn1.setTextColor(getResources().getColor(R.color.xanh));
+            btnn1.setTypeface(null, Typeface.BOLD);
+            btnn2.setTextColor(getResources().getColor(R.color.xám));
+            btnn2.setTypeface(null, Typeface.NORMAL);
+        });
+        btnn2.setOnClickListener(v -> {
+            btnn2.setTextColor(getResources().getColor(R.color.xanh));
+            btnn2.setTypeface(null, Typeface.BOLD);
+            btnn1.setTextColor(getResources().getColor(R.color.xám));
+            btnn1.setTypeface(null, Typeface.NORMAL);
         });
 
-        btnn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                btnn1.setTextColor(getResources().getColor(R.color.xanh));
-                btnn1.setTypeface(null, Typeface.BOLD);
-                btnn2.setTextColor(getResources().getColor(R.color.xám));
-                btnn2.setTypeface(null, Typeface.NORMAL);
-            }
-        });
-        btnn2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                btnn2.setTextColor(getResources().getColor(R.color.xanh));
-                btnn2.setTypeface(null, Typeface.BOLD);
-                btnn1.setTextColor(getResources().getColor(R.color.xám));
-                btnn1.setTypeface(null, Typeface.NORMAL);
-            }
-        });
+        // ========================================================
+        // PHẦN CODE LẤY DỮ LIỆU CHUYẾN BAY TỪ DATABASE
+        // ========================================================
+        AppDatabase db = AppDatabase.getDatabase(this);
+        List<FlightEntity> dbFlights = db.flightDAO().getAllFlights();
 
-        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this,RecyclerView.VERTICAL,false);
+        List<plane_GiaVeNoiDia_Model> listGiaVeDB = new ArrayList<>();
+
+        for(FlightEntity f : dbFlights) {
+            int imageResId = getResources().getIdentifier(f.logoHangBay, "drawable", getPackageName());
+            if (imageResId == 0) imageResId = R.drawable.view1; // Ảnh mặc định nếu lỗi
+
+            listGiaVeDB.add(new plane_GiaVeNoiDia_Model(
+                    imageResId,
+                    f.diemDi + " - " + f.diemDen,
+                    f.ngayDi,
+                    f.giaGiam + " VND"
+            ));
+        }
+
+        List<plane_Category_Model> listCategoryDB = new ArrayList<>();
+        listCategoryDB.add(new plane_Category_Model("Danh sách chuyến bay", listGiaVeDB));
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         rcvCategory.setLayoutManager(linearLayoutManager);
-
-        categoryAdapter.setData(getListCategory());
+        categoryAdapter.setData(listCategoryDB);
         rcvCategory.setAdapter(categoryAdapter);
-
-
-
+        // ========================================================
 
         rcvCategory1=findViewById(R.id.rcv_category1);
         categoryAdapter1 = new plane_CategoryQuocTe_Adapter(this);
@@ -224,6 +223,7 @@ public class plane_VeMayBay_Activity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager1=new LinearLayoutManager(this,RecyclerView.VERTICAL,false);
         rcvCategory1.setLayoutManager(linearLayoutManager1);
 
+        // Danh sách quốc tế hiện tại mình vẫn giữ dữ liệu tĩnh cũ của bạn nhé, vì DB hiện tại chưa có cột phân biệt nội địa/quốc tế
         categoryAdapter1.setData(getListCategory1());
         rcvCategory1.setAdapter(categoryAdapter1);
 
@@ -273,20 +273,6 @@ public class plane_VeMayBay_Activity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private List<plane_Category_Model> getListCategory(){
-        List<plane_Category_Model> listCategory=new ArrayList<>();
-
-        List<plane_GiaVeNoiDia_Model> listGiave=new ArrayList<>();
-        listGiave.add(new plane_GiaVeNoiDia_Model(R.drawable.view1,"Hà Nội - TP HCM","20 Tháng 10 2024","đ1.230.000"));
-        listGiave.add(new plane_GiaVeNoiDia_Model(R.drawable.view2,"Hà Nội - Đà Nẵng","19 Tháng 10 2024","đ1.015.000"));
-        listGiave.add(new plane_GiaVeNoiDia_Model(R.drawable.view3,"Hà Nội - Buôn MT","20 Tháng 10 2024","đ1.329.000"));
-        listGiave.add(new plane_GiaVeNoiDia_Model(R.drawable.view1,"Hà Nội - TP HCM","20 Tháng 10 2024","đ1.230.000"));
-
-        listCategory.add(new plane_Category_Model("",listGiave));
-
-        return listCategory;
-    }
-
     private List<plane_CategoryQuocte_Model> getListCategory1(){
         List<plane_CategoryQuocte_Model> listCategory=new ArrayList<>();
 
@@ -300,5 +286,4 @@ public class plane_VeMayBay_Activity extends AppCompatActivity {
 
         return listCategory;
     }
-
 }

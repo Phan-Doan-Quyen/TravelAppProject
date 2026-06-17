@@ -31,6 +31,11 @@ import com.example.travelappproject.view.hotel.hotel_MainHome_Activity;
 import com.example.travelappproject.view.hotel.hotel_MainHotel_Activity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+// THÊM THƯ VIỆN CHO CSDL VÀ ADAPTER MỚI
+import com.example.travelappproject.database.AppDatabase;
+import com.example.travelappproject.database.TourEntity;
+import com.example.travelappproject.adapter.tour.tour_List_Adapter;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,6 +45,10 @@ public class tour_Tour_Activity extends AppCompatActivity {
     private tour_Horizontal_Adapter horizontalAdapter;
     private List<tour_City_Model> cityList;
     TextView textView;
+
+    // THÊM BIẾN CHO DANH SÁCH TOUR TỪ CSDL
+    private RecyclerView rcvTourList;
+    private tour_List_Adapter tourListAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,39 +90,16 @@ public class tour_Tour_Activity extends AppCompatActivity {
             }
         });
 
-        ImageView loveImageView = findViewById(R.id.love);
-
-        // Gắn sự kiện click cho ImageView
-        loveImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Kiểm tra trạng thái và chuyển đổi hình ảnh
-                if (isLoved) {
-                    loveImageView.setImageResource(R.drawable.love); // Trở về icon "love"
-                    Toast.makeText(tour_Tour_Activity.this, "Đã xóa khỏi yêu thích!", Toast.LENGTH_SHORT).show();
-                } else {
-                    loveImageView.setImageResource(R.drawable.redlove); // Chuyển sang icon "redlove"
-                    Toast.makeText(tour_Tour_Activity.this, "Đã thêm vào yêu thích!", Toast.LENGTH_SHORT).show();
-
-                    // Lưu thông tin item vào SharedPreferences hoặc Database (bạn có thể dùng SharedPreferences để lưu lại trạng thái yêu thích)
-                    saveFavoriteItem();  // Thay giá trị tương ứng
-                }
-                isLoved = !isLoved; // Đảo trạng thái
-            }
-        });
-        textView = findViewById(R.id.textgach);
-        textView.setPaintFlags(textView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-
         horizontalRecyclerView = findViewById(R.id.horizontal_recyclerview);
 
-        // Tạo danh sách các thành phố và hình ảnh
+        // Tạo danh sách các thành phố và hình ảnh (Ngang)
         cityList = new ArrayList<>();
         cityList.add(new tour_City_Model("Đà Nẵng", R.drawable.anh1));
         cityList.add(new tour_City_Model("Hà Nội", R.drawable.anh2));
         cityList.add(new tour_City_Model("Hồ Chí Minh", R.drawable.anh3));
         cityList.add(new tour_City_Model("Huế", R.drawable.anh4));
 
-        // Thiết lập adapter và layout cho RecyclerView
+        // Thiết lập adapter và layout cho RecyclerView ngang
         horizontalAdapter = new tour_Horizontal_Adapter(cityList, this);
         horizontalRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         horizontalRecyclerView.setAdapter(horizontalAdapter);
@@ -127,6 +113,25 @@ public class tour_Tour_Activity extends AppCompatActivity {
         setupSpinner(spinnerThanhPho);
         setupSpinner(spinnerDanhMuc);
         setupSpinner(spinnerSoLuong);
+
+        // ==========================================
+        // ĐOẠN CODE MỚI: LẤY DỮ LIỆU TỪ CSDL NẠP VÀO RECYCLERVIEW DỌC
+        // ==========================================
+        rcvTourList = findViewById(R.id.rcv_tour_list);
+        tourListAdapter = new tour_List_Adapter(this);
+
+        // Đặt kiểu hiển thị danh sách dọc
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
+        rcvTourList.setLayoutManager(linearLayoutManager);
+
+        // Gọi CSDL lấy danh sách các Tour
+        AppDatabase db = AppDatabase.getDatabase(this);
+        List<TourEntity> dbTours = db.tourDAO().getAllTours();
+
+        // Đổ dữ liệu vào Adapter và gắn lên RecyclerView
+        tourListAdapter.setData(dbTours);
+        rcvTourList.setAdapter(tourListAdapter);
+        // ==========================================
 
         setupClickListeners();
     }
@@ -156,14 +161,6 @@ public class tour_Tour_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 openHomePageActivity();
-            }
-        });
-
-        LinearLayout itemTour = findViewById(R.id.item_tour);
-        itemTour.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openTourChiTietPageActivity();
             }
         });
 

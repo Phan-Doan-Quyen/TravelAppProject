@@ -69,6 +69,9 @@ public class hotel_MainHome_Activity extends AppCompatActivity {
         cgrlocationAdapter.setDataLocation(getListLocation());
         rcv_location.setAdapter(cgrlocationAdapter);
 
+        // ==========================================
+        // LẤY DỮ LIỆU TỪ CSDL
+        // ==========================================
         AppDatabase db = AppDatabase.getDatabase(this);
 
         AppDatabase.databaseWriteExecutor.execute(() -> {
@@ -77,6 +80,12 @@ public class hotel_MainHome_Activity extends AppCompatActivity {
             List<hotel_CategoryHotel2_Home_Model> hotelList = new ArrayList<>();
             for (HotelEntity entity : entities) {
                 int imageResId = getResources().getIdentifier(entity.hinhAnh, "drawable", getPackageName());
+
+                // Nếu không tìm thấy file ảnh, gán ảnh mặc định để tránh lỗi
+                if (imageResId == 0) {
+                    imageResId = R.drawable.hotel_4;
+                }
+
                 hotelList.add(new hotel_CategoryHotel2_Home_Model(
                         imageResId,
                         entity.tenKhachSan,
@@ -92,7 +101,7 @@ public class hotel_MainHome_Activity extends AppCompatActivity {
                 cgrAdapter.notifyDataSetChanged();
             });
         });
-        // -------------------------------------------------------------
+        // ==========================================
 
         imageView = findViewById(R.id.hotel);
         imageView.setOnClickListener(new View.OnClickListener() {

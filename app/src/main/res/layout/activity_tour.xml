@@ -55,7 +55,7 @@
 
         </LinearLayout>
 
-        <ScrollView
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -69,12 +69,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <!-- GridLayout for Spinners -->
                 <HorizontalScrollView
                     android:id="@+id/horizontal_scrollview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp">
+                    android:layout_marginBottom="20dp"
+                    android:scrollbars="none">
 
                     <LinearLayout
                         android:id="@+id/linear_buttons"
@@ -83,7 +83,6 @@
                         android:orientation="horizontal"
                         android:padding="10dp">
 
-                        <!-- Giá Spinner -->
                         <Spinner
                             android:id="@+id/spinner_gia"
                             android:layout_width="150dp"
@@ -93,7 +92,6 @@
                             android:entries="@array/gia_options"
                             android:padding="10dp" />
 
-                        <!-- Thành phố Spinner -->
                         <Spinner
                             android:id="@+id/spinner_thanhpho"
                             android:layout_width="150dp"
@@ -103,7 +101,6 @@
                             android:entries="@array/thanhpho_options"
                             android:padding="10dp" />
 
-                        <!-- Danh mục Spinner -->
                         <Spinner
                             android:id="@+id/spinner_danhmuc"
                             android:layout_width="150dp"
@@ -113,7 +110,6 @@
                             android:entries="@array/danhmuc_options"
                             android:padding="10dp" />
 
-                        <!-- Số lượng Spinner -->
                         <Spinner
                             android:id="@+id/spinner_soluong"
                             android:layout_width="150dp"
@@ -126,10 +122,9 @@
                     </LinearLayout>
                 </HorizontalScrollView>
 
-
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="Có Thể Bạn Sẽ Thích"
                     android:textColor="@color/black"
@@ -143,12 +138,12 @@
                     android:orientation="horizontal"
                     android:layout_marginTop="6dp"
                     android:layout_marginLeft="10dp"
-                    android:scrollbars="horizontal"
+                    android:scrollbars="none"
                     android:layout_marginBottom="20dp"/>
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginBottom="10dp"
                     android:text="Khám Phá"
@@ -156,400 +151,15 @@
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
-                <LinearLayout
-                    android:id="@+id/item_tour"
-                    android:orientation="horizontal"
-                    android:padding="10dp"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcv_tour_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/bottom_edge">
-
-                    <ImageView
-                        android:layout_width="95dp"
-                        android:layout_height="95dp"
-                        android:layout_marginRight="10dp"
-                        android:src="@drawable/anh1"
-                        android:scaleType="fitCenter"/>
-
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Vé Công viên nước The Amazing Bay"
-                            android:textSize="16sp"
-                            android:textColor="@color/black"
-                            android:textStyle="bold"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="Xperience Deals"
-                            android:textColor="@android:color/holo_red_light"/>
-
-                        <TextView
-                            android:id="@+id/textgach"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="1.474.999đ"/>
-
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="5dp"
-                                android:text="465.000đ"
-                                android:textColor="@android:color/holo_red_dark"
-                                android:textSize="16sp"
-                                android:textStyle="bold"/>
-
-                            <ImageView
-                                android:id="@+id/love"
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="140dp"
-                                android:src="@drawable/love"/>
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:padding="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bottom_edge">
-
-                    <ImageView
-                        android:layout_width="95dp"
-                        android:layout_height="95dp"
-                        android:layout_marginRight="10dp"
-                        android:src="@drawable/anh1"
-                        android:scaleType="fitCenter"/>
-
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Vé Công viên nước The Amazing Bay"
-                            android:textSize="16sp"
-                            android:textColor="@color/black"
-                            android:textStyle="bold"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="Xperience Deals"
-                            android:textColor="@android:color/holo_red_light"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="1.474.999đ"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="465.000đ"
-                            android:textColor="@android:color/holo_red_dark"
-                            android:textSize="16sp"
-                            android:textStyle="bold"/>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:padding="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bottom_edge">
-
-                    <ImageView
-                        android:layout_width="95dp"
-                        android:layout_height="95dp"
-                        android:layout_marginRight="10dp"
-                        android:src="@drawable/anh1"
-                        android:scaleType="fitCenter"/>
-
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Vé Công viên nước The Amazing Bay"
-                            android:textSize="16sp"
-                            android:textColor="@color/black"
-                            android:textStyle="bold"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="Xperience Deals"
-                            android:textColor="@android:color/holo_red_light"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="490.000đ"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="1.474.999đ"
-                            android:textColor="@android:color/holo_red_dark"
-                            android:textSize="16sp"
-                            android:textStyle="bold"/>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:padding="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bottom_edge">
-                    >
-
-                    <ImageView
-                        android:layout_width="95dp"
-                        android:layout_height="95dp"
-                        android:layout_marginRight="10dp"
-                        android:src="@drawable/anh1"
-                        android:scaleType="fitCenter"/>
-
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Vé Công viên nước The Amazing Bay"
-                            android:textSize="16sp"
-                            android:textColor="@color/black"
-                            android:textStyle="bold"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="Xperience Deals"
-                            android:textColor="@android:color/holo_red_light"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="490.000đ"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="1.474.999đ"
-                            android:textColor="@android:color/holo_red_dark"
-                            android:textSize="16sp"
-                            android:textStyle="bold"/>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:padding="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bottom_edge">
-                    >
-
-                    <ImageView
-                        android:layout_width="95dp"
-                        android:layout_height="95dp"
-                        android:layout_marginRight="10dp"
-                        android:src="@drawable/anh1"
-                        android:scaleType="fitCenter"/>
-
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Vé Công viên nước The Amazing Bay"
-                            android:textSize="16sp"
-                            android:textColor="@color/black"
-                            android:textStyle="bold"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="Xperience Deals"
-                            android:textColor="@android:color/holo_red_light"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="490.000đ"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="1.474.999đ"
-                            android:textColor="@android:color/holo_red_dark"
-                            android:textSize="16sp"
-                            android:textStyle="bold"/>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:padding="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bottom_edge">
-                    >
-
-                    <ImageView
-                        android:layout_width="95dp"
-                        android:layout_height="95dp"
-                        android:layout_marginRight="10dp"
-                        android:src="@drawable/anh1"
-                        android:scaleType="fitCenter"/>
-
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Vé Công viên nước The Amazing Bay"
-                            android:textSize="16sp"
-                            android:textColor="@color/black"
-                            android:textStyle="bold"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="Xperience Deals"
-                            android:textColor="@android:color/holo_red_light"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="490.000đ"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="1.474.999đ"
-                            android:textColor="@android:color/holo_red_dark"
-                            android:textSize="16sp"
-                            android:textStyle="bold"/>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:padding="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bottom_edge">
-                    >
-
-                    <ImageView
-                        android:layout_width="95dp"
-                        android:layout_height="95dp"
-                        android:layout_marginRight="10dp"
-                        android:src="@drawable/anh1"
-                        android:scaleType="fitCenter"/>
-
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Vé Công viên nước The Amazing Bay"
-                            android:textSize="16sp"
-                            android:textColor="@color/black"
-                            android:textStyle="bold"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="Xperience Deals"
-                            android:textColor="@android:color/holo_red_light"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="490.000đ"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="1.474.999đ"
-                            android:textColor="@android:color/holo_red_dark"
-                            android:textSize="16sp"
-                            android:textStyle="bold"/>
-
-                    </LinearLayout>
-
-                </LinearLayout>
+                    android:nestedScrollingEnabled="false"
+                    android:layout_marginBottom="10dp"/>
 
             </LinearLayout>
-        </ScrollView>
+        </androidx.core.widget.NestedScrollView>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"

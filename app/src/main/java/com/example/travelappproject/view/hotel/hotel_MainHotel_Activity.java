@@ -22,10 +22,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.travelappproject.R;
+// IMPORT DATABASE VÀ ENTITY
+import com.example.travelappproject.database.AppDatabase;
+import com.example.travelappproject.database.HotelEntity;
+
 import com.example.travelappproject.model.hotel.hotel_Category_Model;
 import com.example.travelappproject.adapter.hotel.hotel_Category_Adapter;
 import com.example.travelappproject.adapter.hotel.hotel_ChooseHotel_Hotel_Adapter;
-import com.example.travelappproject.model.hotel.hotel_ChooseHotel_Hotel_Model;
+// ĐÃ XÓA IMPORT MODEL GIẢ Ở ĐÂY
 import com.example.travelappproject.view.flight.plane_VeMayBay_Activity;
 import com.example.travelappproject.view.tour.tour_Cart_Activity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -57,28 +61,24 @@ public class hotel_MainHotel_Activity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
                 if (item.getItemId() == R.id.action_home) {
-                    // Chuyển đến HotelMainHomeActivity
                     Intent homeIntent = new Intent(hotel_MainHotel_Activity.this, hotel_MainHome_Activity.class);
                     startActivity(homeIntent);
                     return true;
                 }
 
                 else if (item.getItemId() == R.id.action_hotel) {
-                    // Chuyển đến HotelMainHotelActivity
                     Intent hotelIntent = new Intent(hotel_MainHotel_Activity.this, hotel_MainHotel_Activity.class);
                     startActivity(hotelIntent);
                     return true;
                 }
 
                 else if (item.getItemId() == R.id.action_plane) {
-                    // Chuyển đến PlaneVeMayBayActivity
                     Intent planeIntent = new Intent(hotel_MainHotel_Activity.this, plane_VeMayBay_Activity.class);
                     startActivity(planeIntent);
                     return true;
                 }
 
                 else if (item.getItemId() == R.id.action_tour) {
-                    // Chuyển đến SettingActivity
                     Intent settingIntent = new Intent(hotel_MainHotel_Activity.this, Taikhoan.class);
                     startActivity(settingIntent);
                     return true;
@@ -106,8 +106,17 @@ public class hotel_MainHotel_Activity extends AppCompatActivity {
         cgrChoose = new hotel_ChooseHotel_Hotel_Adapter(this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
-        cgrChoose.setData(getListChooseCategory());
+
+        // ==========================================
+        // PHẦN CODE LẤY DỮ LIỆU TỪ DATABASE
+        // ==========================================
+        AppDatabase db = AppDatabase.getDatabase(this);
+        List<HotelEntity> dbHotels = db.hotelDAO().getAllHotels();
+
+        // TRUYỀN TRỰC TIẾP DANH SÁCH TỪ DB VÀO ADAPTER
+        cgrChoose.setData(dbHotels);
         recyclerView.setAdapter(cgrChoose);
+        // ==========================================
 
         imageView = findViewById(R.id.img_back_hotel);
         imageView.setOnClickListener(new View.OnClickListener() {
@@ -142,17 +151,4 @@ public class hotel_MainHotel_Activity extends AppCompatActivity {
 
         return list;
     }
-
-    private List<hotel_ChooseHotel_Hotel_Model> getListChooseCategory() {
-        List<hotel_ChooseHotel_Hotel_Model> list = new ArrayList<>();
-        list.add(new hotel_ChooseHotel_Hotel_Model(R.drawable.rating, R.drawable.hotel9, "Hương Xuân , Nha Trang .....", "Boutique Hotel Riverside Danang", "1.102.524 VND"));
-        list.add(new hotel_ChooseHotel_Hotel_Model(R.drawable.rating, R.drawable.hotel7, "Hương Xuân , Nha Trang .....", "Khách Sạn Mường Thanh Nha Trang", "1.102.524 VND"));
-        list.add(new hotel_ChooseHotel_Hotel_Model(R.drawable.rating, R.drawable.hotel8, "Hương Xuân , Nha Trang .....", "La Beach Hotel", "1.102.524 VND"));
-        list.add(new hotel_ChooseHotel_Hotel_Model(R.drawable.rating, R.drawable.hotel_4, "Hương Xuân , Nha Trang .....", "Mikazuki JAPANESE RESORTS & SPA", "1.102.524 VND"));
-        list.add(new hotel_ChooseHotel_Hotel_Model(R.drawable.rating, R.drawable.hotel9, "Hương Xuân , Nha Trang .....", "Khách sạn Grand Sunrise Boutique", "1.102.524 VND"));
-
-        return list;
-    }
-
-
 }

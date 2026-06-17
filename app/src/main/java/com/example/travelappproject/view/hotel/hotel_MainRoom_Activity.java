@@ -26,6 +26,10 @@ import com.example.travelappproject.adapter.hotel.hotel_CgrChooseRoomAdapter_Roo
 import com.example.travelappproject.view.flight.plane_VeMayBay_Activity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+// IMPORT DATABASE
+import com.example.travelappproject.database.AppDatabase;
+import com.example.travelappproject.database.RoomEntity;
+
 public class hotel_MainRoom_Activity extends AppCompatActivity {
 
     private hotel_Category_Adapter categoryAdapter;
@@ -88,8 +92,41 @@ public class hotel_MainRoom_Activity extends AppCompatActivity {
         chooseRoomAdapter = new hotel_CgrChooseRoomAdapter_Room(this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
-        chooseRoomAdapter.setData(getListRoomCategory());
+
+        // ==========================================
+        // LẤY DỮ LIỆU PHÒNG TỪ CSDL (BẢNG ROOM)
+        // ==========================================
+        AppDatabase db = AppDatabase.getDatabase(this);
+
+        // Tạm thời lấy danh sách phòng của khách sạn số 1 (sau này bạn có thể truyền ID khách sạn từ màn hình trước sang)
+        int currentHotelId = getIntent().getIntExtra("HOTEL_ID", 1);
+        List<RoomEntity> dbRooms = db.roomDAO().getRoomsByHotelId(currentHotelId);
+
+        List<hotel_CgrChooseRoom_Room_Model> adapterRoomList = new ArrayList<>();
+
+        for (RoomEntity r : dbRooms) {
+            // Lấy ID của ảnh từ tên ảnh lưu trong CSDL
+            int imageResId = getResources().getIdentifier(r.hinhAnh, "drawable", getPackageName());
+            if (imageResId == 0) imageResId = R.drawable.room1; // Ảnh mặc định nếu lỗi tên file
+
+            // Nạp dữ liệu thật vào Model để View hiển thị
+            adapterRoomList.add(new hotel_CgrChooseRoom_Room_Model(
+                    R.drawable.air_conditioner1,
+                    R.drawable.bed3,
+                    R.drawable.wifi1,
+                    imageResId,
+                    "Máy lạnh",
+                    r.tenPhong,
+                    r.soNguoi + " người",
+                    r.giaTien + " VND",
+                    "Wifi"
+            ));
+        }
+
+        // Truyền danh sách thật vào Adapter
+        chooseRoomAdapter.setData(adapterRoomList);
         recyclerView.setAdapter(chooseRoomAdapter);
+        // ==========================================
 
         //Image
         imageView = findViewById(R.id.img_back_room);
@@ -112,22 +149,4 @@ public class hotel_MainRoom_Activity extends AppCompatActivity {
 
         return list;
     }
-
-    private List<hotel_CgrChooseRoom_Room_Model> getListRoomCategory() {
-
-        List<hotel_CgrChooseRoom_Room_Model> list = new ArrayList<>();
-
-        list.add(new hotel_CgrChooseRoom_Room_Model(R.drawable.air_conditioner1, R.drawable.bed3, R.drawable.wifi1, R.drawable.room1,
-                "Máy lạnh", "Phòng đôi Luxury", "2 người ", "925.555 VND", "Wifi"));
-        list.add(new hotel_CgrChooseRoom_Room_Model(R.drawable.air_conditioner1, R.drawable.bed3, R.drawable.wifi1, R.drawable.room2,
-                "Máy lạnh", "Phòng DELUXY", "3 người ", "1.102.524 VND", "Wifi"));
-        list.add(new hotel_CgrChooseRoom_Room_Model(R.drawable.air_conditioner1, R.drawable.bed3, R.drawable.wifi1, R.drawable.room3,
-                "Máy lạnh", "Phòng đôi COUPLE", "2 người ", "1.102.524 VND", "Wifi"));
-        list.add(new hotel_CgrChooseRoom_Room_Model(R.drawable.air_conditioner1, R.drawable.bed3, R.drawable.wifi1, R.drawable.room4,
-                "Máy lạnh", "Phòng đơn view biển", "1 người ", "1.102.524 VND", "Wifi"));
-        list.add(new hotel_CgrChooseRoom_Room_Model(R.drawable.air_conditioner1, R.drawable.bed3, R.drawable.wifi1, R.drawable.room5,
-                "Máy lạnh", "Phòng đôi view biển", "2 người ", "1.102.524 VND", "Wifi"));
-        return list;
-    }
-
 }

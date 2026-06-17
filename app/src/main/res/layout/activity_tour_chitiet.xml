@@ -74,7 +74,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="10dp"
-                    android:text="Vé Công viên nước The Amazing Bay"
+                    android:text="Tour Bà Nà Hills 1 Ngày - Khám Phá Cầu Vàng"
                     android:textAllCaps="false"
                     android:textStyle="bold"
                     android:textColor="@color/black"
@@ -97,7 +97,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="5dp"
-                        android:text="4.6"
+                        android:text="5.0"
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -105,7 +105,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="(1048 đánh giá)"
+                        android:text="(2,548 đánh giá)"
                         android:textColor="@color/material_dynamic_neutral_variant50"
                         android:textSize="14sp" />
                 </LinearLayout>
@@ -127,7 +127,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="5dp"
-                        android:text="Mở"
+                        android:text="Mở cửa"
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -135,7 +135,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="| Thứ, 09:00-17:00"
+                        android:text="| Hằng ngày, 08:00 - 17:00"
                         android:textColor="@color/material_dynamic_neutral50"
                         android:textSize="14sp" />
                 </LinearLayout>
@@ -157,7 +157,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="5dp"
-                        android:text="Quốc lộ 51, Khu phố 4, Long Thành, Đồng Nai, Việt Nam"
+                        android:text="Huyện Hòa Vang, Thành phố Đà Nẵng, Việt Nam"
                         android:textColor="@color/material_dynamic_neutral50"
                         android:textSize="14sp" />
 
@@ -198,11 +198,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:text="Embark on a unique adventure like never before with KKday's Signature Tour at Sun World Ba Na Hills, featuring a breathtaking cable car ride to world-record heights and a visit to the iconic Golden Bridge, French Village, and more!\n\n
-• Hop on one of the world's best cable car experiences up to Sun World Ba Na Hills\n
-• Cross the newly renovated Golden Bridge held by the hand of the Buddha\n
-• Let loose at Fantasy Park, a large indoor entertainment park featuring rides, 4D, and 5D cinemas\n
-• Follow KKday selected route and earn rewards with KKday signature tour • Free give away Da Nang International Firework tickets for customer travel on the show date - First come - First serve - Limited quantity"
+                    android:text="Hành trình khám phá Sun World Bà Nà Hills - chốn bồng lai tiên cảnh giữa lòng Đà Nẵng!\n\n• Trải nghiệm tuyến cáp treo đạt nhiều kỷ lục thế giới, ngắm nhìn toàn cảnh rừng núi nguyên sinh.\n• Check-in tại Cầu Vàng - tuyệt tác kiến trúc được nâng đỡ bởi đôi bàn tay khổng lồ rêu phong.\n• Vui chơi thỏa thích tại Fantasy Park - công viên giải trí trong nhà lớn nhất Việt Nam với vô số trò chơi cảm giác mạnh và rạp chiếu phim 4D, 5D.\n• Lạc bước vào không gian lãng mạn, cổ kính của Làng Pháp và thưởng thức các lễ hội đường phố sôi động."
                     android:textColor="@color/material_dynamic_neutral40"
                     android:textSize="14dp" />
 
@@ -237,165 +233,165 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="5dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="5dp">
-
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/border"
-                    android:gravity="center"
-                    android:orientation="vertical"
+                    android:orientation="horizontal"
                     android:padding="5dp">
 
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/ic_calendar" />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="5dp">
 
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/ic_arrow_down" />
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_calendar" />
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_arrow_down" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/blue_border"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Th 6"
+                            android:textColor="@color/material_dynamic_neutral40" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4 thg 10"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Th 7"
+                            android:textColor="@color/material_dynamic_neutral40" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5 thg 10"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CN"
+                            android:textColor="@color/material_dynamic_neutral40" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="6 thg 10"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Th 2"
+                            android:textColor="@color/material_dynamic_neutral40" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="7 thg 10"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Th 3"
+                            android:textColor="@color/material_dynamic_neutral40" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="8 thg 10"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Th 4"
+                            android:textColor="@color/material_dynamic_neutral40" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="9 thg 10"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
                 </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/blue_border"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="5dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Th 6"
-                        android:textColor="@color/material_dynamic_neutral40" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="4 thg 10"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/border"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="5dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Th 7"
-                        android:textColor="@color/material_dynamic_neutral40" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="5 thg 10"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/border"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="5dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="CN"
-                        android:textColor="@color/material_dynamic_neutral40" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="6 thg 10"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/border"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="5dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Th 2"
-                        android:textColor="@color/material_dynamic_neutral40" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="7 thg 10"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/border"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="5dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Th 3"
-                        android:textColor="@color/material_dynamic_neutral40" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="8 thg 10"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/border"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="5dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Th 4"
-                        android:textColor="@color/material_dynamic_neutral40" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="9 thg 10"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-            </LinearLayout>
             </HorizontalScrollView>
 
             <LinearLayout
@@ -411,7 +407,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="7dp"
-                    android:text="[MUA 4 TẶNG 1] COMBO: The Amazing Bay &amp; The Amazing World"
+                    android:text="Vé Cáp Treo Khứ Hồi + Buffet Trưa Cao Cấp"
                     android:textColor="@color/black"
                     android:textSize="16dp"
                     android:textStyle="bold" />
@@ -420,7 +416,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="7dp"
-                    android:text="Mua 4 vé, TẶNG thêm 1 vé"
+                    android:text="Bao gồm vé cáp treo, vé vui chơi Fantasy Park và 1 bữa Buffet trưa"
                     android:textColor="#605959"
                     android:textSize="14dp" />
 
@@ -454,7 +450,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-                    android:text="465.000đ"
+                    android:text="1.200.000đ"
                     android:textColor="@android:color/holo_red_dark"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -473,7 +469,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="7dp"
-                    android:text="[MUA 4 TẶNG 1] COMBO: The Amazing Bay &amp; The Amazing World"
+                    android:text="Vé Cáp Treo Khứ Hồi (Không bao gồm ăn trưa)"
                     android:textColor="@color/black"
                     android:textSize="16dp"
                     android:textStyle="bold" />
@@ -482,7 +478,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="7dp"
-                    android:text="Mua 4 vé, TẶNG thêm 1 vé"
+                    android:text="Bao gồm vé cáp treo, tham quan Cầu Vàng, Làng Pháp và Fantasy Park"
                     android:textColor="#605959"
                     android:textSize="14dp" />
 
@@ -516,7 +512,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-                    android:text="465.000đ"
+                    android:text="900.000đ"
                     android:textColor="@android:color/holo_red_dark"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -583,7 +579,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Miễn phí hủy"
+                        android:text="Hỗ trợ thay đổi ngày đi"
                         android:textSize="15sp"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
@@ -595,7 +591,7 @@
                     android:layout_marginLeft="25dp"
                     android:layout_marginRight="25dp"
                     android:layout_marginBottom="10dp"
-                    android:text="Bạn có thể được hoàn tiền toàn bộ hoặc một phần cho các vé đã chọn nếu hủy đặt chỗ"
+                    android:text="Bạn có thể linh hoạt thay đổi ngày sử dụng vé trước 24h so với giờ khởi hành."
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -641,7 +637,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Liên hệ nhà cung cấp dịch vụ"
+                        android:text="Liên hệ tổng đài Sun World"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
                 </LinearLayout>
@@ -664,7 +660,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginRight="25dp"
                         android:layout_marginBottom="5dp"
-                        android:text="Dịch vụ có sẵn tại: Tiếng Việt, Tiếng Anh, Tiếng Trung, Tiếng Nhật, Tiếng Hàn"
+                        android:text="Dịch vụ có sẵn tại: Tiếng Việt, Tiếng Anh, Tiếng Trung, Tiếng Hàn"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
                 </LinearLayout>
@@ -714,7 +710,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="147.000đ"
+                android:text="900.000đ"
                 android:textColor="@android:color/holo_red_dark"
                 android:textSize="16sp"
                 android:textStyle="bold" />
